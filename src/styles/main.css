@@ -1,0 +1,116 @@
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+html, body {
+	height:100%;
+	-webkit-font-smoothing:antialiased;
+	margin:0;
+	padding:0;
+	border:0;
+	background-color:white;
+}
+
+h1, p, span, a {
+	font-size:14px;
+	font-family: "OpenSansLight";
+	font-weight: 300;
+	color:black;
+}
+
+a, a:hover {
+	text-decoration: none;
+}
+
+img {
+	border:0;
+}
+
+@font-face {
+    font-family: 'OpenSansLight';
+    src: url('fonts/opensans-light.eot');
+    src: url('fonts/opensans-light.eot') format('embedded-opentype'),
+         url('fonts/opensans-light.woff') format('woff'),
+         url('fonts/opensans-light.ttf') format('truetype'),
+         url('fonts/opensans-light.svg#OpenSansLight') format('svg');
+}
+
+@font-face {
+	font-family: 'Skinnies';
+	src:url('fonts/skinnies.eot');
+	src:url('fonts/skinnies.eot?#iefix') format('embedded-opentype'),
+		url('fonts/skinnies.woff') format('woff'),
+		url('fonts/skinnies.ttf') format('truetype'),
+		url('fonts/skinnies.svg#Skinnies') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="icon-"] {
+	font-family: 'Skinnies';
+	speak: none;
+	font-size:42px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-decoration:none;
+	-webkit-font-smoothing: antialiased;
+	color:black;
+	-webkit-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	-moz-text-size-adjust:none;
+	text-size-adjust:none;
+}
+ 
+a:hover,
+.icon-linkedin:hover, 
+.icon-circle-fill:hover, 
+.icon-circle-outline:hover {
+	color:rgb(0,128,255);
+}
+
+.icon-linkedin:before {
+	content: "\e602";
+}
+
+.icon-linkedin:hover:before {
+	content: "\e603";
+}
+
+.icon-logo {
+	margin: 0;
+	padding: 0;
+	margin-bottom:107px;
+}
+
+.icon-logo:before {
+	content: "\e601";
+}
+
+.icon-linkedin {
+	display: block;
+	margin-bottom:15px;
+}
+
+.container {
+	margin: auto 0;
+	text-align: center;
+	margin:140px 0 30px 0;
+}
+
+.title {
+	display: block;
+	font-size: 60px;
+	margin:57px 0 60px 0;
+	padding:0;
+	line-height: 67px; 
+}
+
+.address {
+	margin:110px 0 5px 0;
+}
