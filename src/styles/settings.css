@@ -1,0 +1,15 @@
+#settings h2, #settings h2 a { padding:0 0 5px 5px;color: #FFFFFF; }
+#settings a { color:#FFFFFF; text-decoration: none; }
+#settings a:hover { color:#FFFFFF; }
+#settings p { padding:0 0 5px 0; }
+
+#settings input { padding:5px; border:1px solid #000000; border-radius:4px; -moz-border-radius:4px; -web-kit-border-radius:4px; -khtml-border-radius:4px; }
+
+#settings {
+	position: fixed;
+	top:0px;
+	left:0px;
+	z-index: 999;
+	padding:10px;
+	background-color:#000000;
+}

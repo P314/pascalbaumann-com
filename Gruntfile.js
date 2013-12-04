@@ -34,6 +34,11 @@ function dateFormat(date, format) {
           { dest: '<%= config.distDir %>/styles/', src: '**', expand: true, cwd: '<%= config.srcDir %>/styles/' },
         ]
       },
+      scripts: {
+        files: [
+          { dest: '<%= config.distDir %>/scripts/', src: '**', expand: true, cwd: '<%= config.srcDir %>/scripts/' },
+        ]
+      },
       assets: {
         files: [
           { dest: '<%= config.distDir %>/assets/', src: '**', expand: true, cwd: '<%= config.srcDir %>/assets/' },
@@ -106,7 +111,7 @@ function dateFormat(date, format) {
 
   grunt
     .registerTask('default', [''])
-    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets']) 
+    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts']) 
     .registerTask('deploy', ['build', 'sshexec:make-release-dir', 'sshexec:update-symlinks', 'sftp:deploy'])
     .registerTask('server', ['connect:server', 'watch'])
 };
