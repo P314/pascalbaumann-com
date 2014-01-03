@@ -160,3 +160,31 @@ function scroller()
 	    innerTopOffset: 200 
 	});
 };
+function mapbox()
+{
+	var map = L.mapbox.map('map_canvas', 'pascalbaumann.map-bocmbect')
+	    .setView([47.373092,8.524098], 17);
+	var geoJson = [{
+	    "type": "Feature",
+	    "geometry": {
+	        "type": "Point",
+	        "coordinates": [8.524098,47.373092]
+	    },
+	    "properties": {
+	        "icon": {
+	            "iconUrl": "assets/images/hello.png",
+	            "iconSize": [171, 100],
+	            "iconAnchor": [68, 100] 
+	        }
+	    }
+	}];
+	map.markerLayer.on('layeradd', function(e)
+	{
+	    var marker = e.layer,
+	        feature = marker.feature;
+	    marker.setIcon(L.icon(feature.properties.icon));
+	});
+	map.markerLayer.setGeoJSON(geoJson);
+	map.touchZoom.disable();
+	map.scrollWheelZoom.disable();
+}
