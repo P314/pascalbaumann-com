@@ -1,4 +1,4 @@
-var positions = [[0,-1600],[600,-1600],[2000,600],[1800,200]]; 
+var positions = [[0,-1600],[600,-1600],[2000,600],[1400,200]]; 
 var contentPos = 1;
 var backgroundY = 0;
 var $container = $('.background'),
