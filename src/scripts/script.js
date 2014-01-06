@@ -172,7 +172,7 @@ function mapbox()
 	    },
 	    "properties": {
 	        "icon": {
-	            "iconUrl": "assets/images/hello.png",
+	            "iconUrl": "assets/images/again.png",
 	            "iconSize": [171, 100],
 	            "iconAnchor": [68, 100] 
 	        }

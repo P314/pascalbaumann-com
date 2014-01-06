@@ -778,6 +778,19 @@ section {
 	color:rgb(0,128,255);
 }
 
+.outro-apple {
+	padding:0px;
+}
+
+.outro-apple span {
+	font-size:12px;
+	color:#FFFFFF;
+}
+
+.outro-continue-nav {
+	padding:40px 0 50px 0;
+}
+
 @media only screen and (max-width: 1024px) {
 	.who article .description {
 		max-width:520px;
