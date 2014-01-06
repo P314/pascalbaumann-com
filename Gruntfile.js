@@ -91,8 +91,12 @@ function dateFormat(date, format) {
         files: '<%= config.srcDir %>/index.html',
         tasks: ['copy:index']
       },
+      js: {
+        files: '<%= config.srcDir %>/scripts/*.js',
+        tasks: ['copy:scripts']
+      },
       css: {
-        files: '**/*.css',
+        files: '<%= config.srcDir %>/styles/*.css',
         tasks: ['copy:styles']
       }
     },
