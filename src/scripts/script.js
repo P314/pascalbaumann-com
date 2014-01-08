@@ -1,12 +1,12 @@
-var positions = [[0,-1600],[600,-1600],[2000,600],[1400,200]]; 
-var contentPos = 1;
-var backgroundY = 0;
 var $container = $('.background'),
 	offsetCoords = $container.offset(),
 	topOffset = offsetCoords.top,
-	startPos = $container.position().top;
-var backgroundHeight = $container.height();
-var contentHeight = $('body').height();
+	startPos = $container.position().top,
+	backgroundHeight = $container.height(),
+	contentHeight = $('body').height(),
+	positions = [[0,-1600],[600,-1600],[2000,600],[1400,200]],
+	contentPos = 1,
+	backgroundY = 0;
 (function($,sr)
 {
   var debounce = function (func, threshold, execAsap)
@@ -31,8 +31,7 @@ var contentHeight = $('body').height();
 })(jQuery,'smartresize');
 $(document).ready(function() 
 {
-	intro();scroller();mapbox();
-	resize();
+	intro();scroller();mapbox();resize();
 	$(window).smartresize(function()
 	{
 		resize();
@@ -55,16 +54,12 @@ function setBackgroundPosition()
 	if ( scrollTop >= nextContentY )
 	{
 		if ( contentPos < positions.length-1 )
-		{
 			contentPos++;
-		}
 	}
 	if ( scrollTop < startContentY )
 	{
 		if ( contentPos > 1 )
-		{
 			contentPos--;
-		}
 	}		
 	startContentY = positions[contentPos-1][0];
 	nextContentY = positions[contentPos][0];
@@ -81,33 +76,14 @@ function setBackgroundPosition()
 }
 function layout()
 {
-	var browserHeight = window.innerHeight ? window.innerHeight : $(window).height();
 	var browserWidth = $(window).width();
 	var css = [];
 	var yPointer = 0;
 	$('section').each(function(i,v)
-	{
-		var minHeight = Number($(this).css('min-height').replace(/[^-\d\.]/g, ''));
-		if (!minHeight)
-		{
-			minHeight = $(this).height();
-		}	
+	{	
 		var cssobj = { };
 		if ( $(this).attr('data-width') == 'full' )
-		{	
-				cssobj.width = browserWidth;		
-		}
-		if ( $(this).attr('data-height') == 'full' )
-		{	
-			if ( browserHeight >= Number($(this).css('min-height').replace(/[^-\d\.]/g, '')) )
-			{
-				cssobj.height = browserHeight;
-			} 
-			else
-			{
-				cssobj.height = minHeight;
-			}			
-		}
+			cssobj.width = browserWidth;
 		css.push(cssobj);
 	});
 	var i = 0;
