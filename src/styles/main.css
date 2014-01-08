@@ -377,14 +377,17 @@ section {
 
 .section-content section {
 	width:940px;
-	box-sizing:border-box;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	text-align:center;
 	margin: 0 auto 0;
 }
 
 .section-content article {
 	max-width:940px;
-	box-sizing:border-box;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;
 	text-align:center;
 	margin: 0 auto 0;
 }
@@ -454,7 +457,9 @@ section {
 	max-width:590px;
 	margin: 0 auto 0; 
 	padding-top: 125px;
-	box-sizing:border-box;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;
 }
 
 .intro p { 	
@@ -580,6 +585,7 @@ section {
 #work {	
 	min-height:850px;
 	width: 100%;
+	position:relative;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-box-pack: center;
@@ -597,8 +603,12 @@ section {
 	width:100%;
 	display: -webkit-box;
 	-webkit-box-pack: center;
+
 	display: -moz-box;
 	-moz-box-pack: center;
+	top:0px;
+	text-align: center;
+
 	display: box;
 	box-pack: center;
 }
@@ -614,7 +624,9 @@ section {
 .clients {
 	height:453px;
 	padding:45px 0 50px 50px;
-	box-sizing:border-box;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;
 }
 
 .clients .title {
@@ -661,6 +673,7 @@ section {
 	display: -moz-box;
 	-moz-box-orient: vertical;
 	-moz-box-pack: center;
+	-moz-box-align: center;
 	display: box;
 	box-orient: vertical;
 	box-pack: center;
@@ -684,11 +697,13 @@ section {
 .front {
 	-webkit-transform: translateZ(30px);
 	transform: translateZ(30px);
+    -moz-transform: translateZ(30px);
 }
 
 .back {
 	-webkit-transform: rotateX(-90deg) translateZ(-30px);
 	transform: rotateX(-90deg) translateZ(-30px);
+    -moz-transform: rotateX(-90deg) translateZ(-30px);
 }
 
 .fadein3 {
@@ -705,14 +720,18 @@ section {
 	padding:0px;
 	min-height:733px;
 	margin:0 auto;
-	box-sizing:border-box;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;
 }
 
 .who article {
 	max-width:960px;
-	box-sizing:border-box;
 	text-align:left;
 	margin: 0 auto;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;
 }
 
 .who article a {
@@ -728,9 +747,11 @@ section {
 	position:absolute;
 	top:317px;
 	max-width:650px;
-	box-sizing:border-box;
 	text-align:left;
 	padding-bottom:0px;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;
 }
 
 .who article .description .title,  .who article .skills .title{

@@ -51,6 +51,11 @@ function setBackgroundPosition()
 	var startContentY = positions[contentPos-1][0];
 	var nextContentY = positions[contentPos][0];
 	var scrollTop = $(window).scrollTop();
+
+	if ( scrollTop == 0 ) {
+		contentPos = 1;
+	}
+
 	if ( scrollTop >= nextContentY )
 	{
 		if ( contentPos < positions.length-1 )
@@ -125,8 +130,12 @@ function scroller()
 	}
 	$(".scroll").click(function(event)
 	{	
-		event.preventDefault();
-		$('html,body').animate({scrollTop:calculateY($(this.hash))}, 500, function(){});
+		var targetY = calculateY($(this.hash));
+		if ( targetY ) 
+		{
+			event.preventDefault();
+			$('html,body').animate({scrollTop:targetY}, 500, function(){});
+		}
 	});
 	$(".snap").snapPoint(
 	{ 
