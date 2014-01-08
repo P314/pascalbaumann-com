@@ -107,6 +107,17 @@ function dateFormat(date, format) {
           base: '<%= config.distDir %>'
         }
       }
+    },
+    webfont: {
+      icons: {
+        src: 'icons/*.svg',
+        dest: 'src/styles/fonts',
+        options: {
+          font: 'skinnies',
+          types: 'eot,svg,ttf,woff',
+          embed: true
+        }
+      }
     }
   };
 
@@ -118,4 +129,5 @@ function dateFormat(date, format) {
     .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts']) 
     .registerTask('deploy', ['build', 'sshexec:make-release-dir', 'sshexec:update-symlinks', 'sftp:deploy'])
     .registerTask('server', ['connect:server', 'watch'])
+    .registerTask('font', ['webfont'])
 };
