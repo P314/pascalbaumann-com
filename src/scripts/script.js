@@ -45,9 +45,33 @@ $(document).ready(function()
 	{
 	    setBackgroundPosition();
 	});
+	if (detectTouchSupport())
+		touchHover();
 });
+function detectTouchSupport()
+{
+	msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
+	touchSupport = (( "ontouchstart" in window ) || msGesture || window.DocumentTouch &&     document instanceof DocumentTouch);
+	if(touchSupport) {
+	    return true;
+	}
+	else {
+	    false;
+	}
+}
+function touchHover() 
+{
+    $('*').on('touchstart', function () {
+        $(this).trigger('hover');
+    }).on('touchend', function () {
+        $(this).trigger('hover');
+    });
+};
+
 function setBackgroundPosition()
 {
+	if (detectTouchSupport()) return;
+
 	var startContentY = positions[contentPos-1][0];
 	var nextContentY = positions[contentPos][0];
 	var scrollTop = $(window).scrollTop();
@@ -172,4 +196,7 @@ function mapbox()
 	map.markerLayer.setGeoJSON(geoJson);
 	map.touchZoom.disable();
 	map.scrollWheelZoom.disable();
+	if (detectTouchSupport())
+		map.dragging.disable();
+	if (map.tap) map.tap.disable();
 }
