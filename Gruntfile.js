@@ -118,6 +118,15 @@ function dateFormat(date, format) {
           embed: true
         }
       }
+    },
+    encodeImages: {
+      build: {
+        files: [{
+          expand: false,
+          src: '<%= config.distDir %>/styles/main.css',
+          dest: '<%= config.distDir %>/styles/main.css'
+        }]
+      }
     }
   };
 
@@ -126,7 +135,7 @@ function dateFormat(date, format) {
 
   grunt
     .registerTask('default', [''])
-    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts']) 
+    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts','encodeImages']) 
     .registerTask('deploy', ['build', 'sshexec:make-release-dir', 'sshexec:update-symlinks', 'sftp:deploy'])
     .registerTask('server', ['connect:server', 'watch'])
     .registerTask('font', ['webfont'])

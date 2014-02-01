@@ -10,7 +10,8 @@
     "grunt-ssh": "~0.8.0",
     "grunt-deploy": "~0.1.7",
     "load-grunt-tasks": "~0.2.0",
-    "grunt-webfont": "~0.2.2"
+    "grunt-webfont": "~0.2.2",
+    "grunt-encode-images": "~0.1.4"
   },
   "dependencies": {}
 }
