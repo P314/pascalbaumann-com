@@ -1,0 +1,100 @@
+[
+    {
+        "label": "Love",
+        "imagepath": "assets/images/logo-apple.png"
+    },
+    {
+        "label": "Drink",
+        "imagepath": "assets/images/logo-coca-cola.png"
+    }
+    ,
+    {
+        "label": "Move",
+        "imagepath": "assets/images/logo-bombardier.png"
+    }
+    ,
+    {
+        "label": "Online",
+        "imagepath": "assets/images/logo-hv.png"
+    }
+    ,
+    {
+        "label": "Baquette",
+        "imagepath": "assets/images/logo-publicis.png"
+    }
+    ,
+    {
+        "label": "Breakfast",
+        "imagepath": "assets/images/logo-tbwa.png"
+    }
+    ,
+    {
+        "label": "Fast",
+        "imagepath": "assets/images/logo-lotus.png"
+    }
+    ,
+    {
+        "label": "California",
+        "imagepath": "assets/images/logo-mal.png"
+    }
+    ,
+    {
+        "label": "Learn",
+        "imagepath": "assets/images/logo-yr.png"
+    }
+    ,
+    {
+        "label": "Gourmet",
+        "imagepath": "assets/images/logo-vzug.png"
+    }
+    ,
+    {
+        "label": "Listen",
+        "imagepath": "assets/images/logo-warner.png"
+    }
+    ,
+    {
+        "label": "Time",
+        "imagepath": "assets/images/logo-casio.png"
+    }
+    ,
+    {
+        "label": "Sexy",
+        "imagepath": "assets/images/logo-agent-provocateur.png"
+    }
+    ,
+    {
+        "label": "Talk",
+        "imagepath": "assets/images/logo-swisscom.png"
+    }
+    ,
+    {
+        "label": "Flush",
+        "imagepath": "assets/images/logo-kohler.png"
+    }
+    ,
+    {
+        "label": "though",
+        "imagepath": "assets/images/logo-gshock.png"
+    }
+    ,
+    {
+        "label": "home",
+        "imagepath": "assets/images/logo-zuerich.png"
+    }
+    ,
+    {
+        "label": "brain",
+        "imagepath": "assets/images/logo-eth.png"
+    }
+    ,
+    {
+        "label": "advertising",
+        "imagepath": "assets/images/logo-wirz.png"
+    }
+    ,
+    {
+        "label": "style",
+        "imagepath": "assets/images/logo-hannesb.png"
+    }
+]

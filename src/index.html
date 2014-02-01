@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:ng="http://angularjs.org" ng-app="pascalbaumann-com">
   <head>
     <meta charset="utf-8">
     <title>Pascal Baumann - Art Director</title>
@@ -57,171 +57,20 @@
       <div class="section-content clients">
       <article>
         <span class="title">Some brands I worked for</span>
-        <div class="logos">
-          <div class="client-logo">
+        <div class="logos" ng-controller="ClientsCtrl">
+          <div class="client-logo" ng-repeat="client in clients">
             <div class="front">
-              <img src="assets/images/logo-apple.png" />
+              <img src="{{client.imagepath}}" />
             </div>
             <div class="back">
-              <span>Love</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-coca-cola.png" />
-            </div>
-            <div class="back">
-              <span>Drink</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-bombardier.png" />
-            </div>
-            <div class="back">
-              <span>Move</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-hv.png" />
-            </div>
-            <div class="back">
-              <span>Online</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-publicis.png" />
-            </div>
-            <div class="back">
-              <span>Baquette</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-tbwa.png" />
-            </div>
-            <div class="back">
-              <span>Breakfast</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-lotus.png" />
-            </div>
-            <div class="back">
-              <span>Fast</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-mal.png" />
-            </div>
-            <div class="back">
-              <span>California</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-yr.png" />
-            </div>
-            <div class="back">
-              <span>Learn</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-vzug.png" />
-            </div>
-            <div class="back">
-              <span>Gourmet</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-warner.png" />
-            </div>
-            <div class="back">
-              <span>Listen</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-casio.png" />
-            </div>
-            <div class="back">
-              <span>Time</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-agent-provocateur.png" />
-            </div>
-            <div class="back">
-              <span>Sexy</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-swisscom.png" />
-            </div>
-            <div class="back">
-              <span>Talk</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-kohler.png" />
-            </div>
-            <div class="back">
-              <span>Flush</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-gshock.png" />
-            </div>
-            <div class="back">
-              <span>though</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-zuerich.png" />
-            </div>
-            <div class="back">
-              <span>home</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-eth.png" />
-            </div>
-            <div class="back">
-              <span>brain</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-wirz.png" />
-            </div>
-            <div class="back">
-              <span>advertising</span>
-            </div>
-          </div>
-          <div class="client-logo">
-            <div class="front">
-              <img src="assets/images/logo-hannesb.png" />
-            </div>
-            <div class="back">
-              <span>style</span>
+              <span>{{client.label}}</span>
             </div>
           </div>
         </div>
       </article>
       </div>
     </section>
+
     <section id="who" class="snap">
       <div class="section-content who">
         <article>
@@ -296,10 +145,12 @@
   ga('send', 'pageview');
 
 </script>
-<script type="text/JavaScript" src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
 <script type="text/javascript" src="scripts/libs/jquery-1.9.1.min.js"></script>
+<script src="vendor/angular/angular.js"></script>
+<script type="text/JavaScript" src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
 <script type="text/JavaScript" src="scripts/libs/jquery.snappoint-1.5.min.js"></script>
 <script type="text/javascript" src="scripts/script.js"></script>
+<script type="text/javascript" src="scripts/application.js"></script>
 </body>
 </html>
 

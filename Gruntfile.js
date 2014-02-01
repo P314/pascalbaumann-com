@@ -92,7 +92,7 @@ function dateFormat(date, format) {
         tasks: ['copy:index']
       },
       js: {
-        files: '<%= config.srcDir %>/scripts/*.js',
+        files: '<%= config.srcDir %>/app/*.js',
         tasks: ['copy:scripts']
       },
       css: {

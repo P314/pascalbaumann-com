@@ -1,8 +1,6 @@
-logs/*
-!.gitkeep
-node_modules/
 .DS_Store
 .sshconfig
-dist
-design/*
-bower_components/*
+dist/
+design/
+node_modules/
+vendor/
