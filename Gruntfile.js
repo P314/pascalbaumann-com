@@ -36,7 +36,8 @@ function dateFormat(date, format) {
       },
       scripts: {
         files: [
-          { dest: '<%= config.distDir %>/scripts/', src: '**', expand: true, cwd: '<%= config.srcDir %>/scripts/' },
+          { dest: '<%= config.distDir %>/app/', src: '**', expand: true, cwd: '<%= config.srcDir %>/app/' },
+          { dest: '<%= config.distDir %>/vendor/', src: '**', expand: true, cwd: 'vendor/' },
         ]
       },
       assets: {
