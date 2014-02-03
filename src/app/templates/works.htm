@@ -1,0 +1,17 @@
+<div class="gridViewParent">
+	<div class="gridViewChild round-top round-bottom" ng-repeat="work in works">
+	  <div class="cover">
+	    <span>{{work.title}}<br>{{work.description}}</span>
+	  </div>
+	  <div class="media">
+	    <img src="assets/images/{{work.media[0].path}}">
+	  </div>
+	  <div class="text">
+	    <div class="text-inner">
+	      <p>{{work.metadata.tasks[0]}}<br>{{work.date}}</p>
+	      <p>{{work.metadata.date}}</p>
+	      <p ng-bind-html="work.text"></p>
+	    </div>
+	  </div>
+	</div>
+</div> 

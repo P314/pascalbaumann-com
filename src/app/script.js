@@ -161,6 +161,7 @@ function scroller()
 			$('html,body').animate({scrollTop:targetY}, 500, function(){});
 		}
 	});
+	/*
 	$(".snap").snapPoint(
 	{ 
 	    scrollDelay: 1500,    
@@ -168,4 +169,5 @@ function scroller()
 	    outerTopOffset: 100,   
 	    innerTopOffset: 200 
 	});
+*/
 };

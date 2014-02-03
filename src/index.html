@@ -47,10 +47,22 @@
           </div>
       </section>
     </div>
-    <section id="work" data-width="full"  class="snap">  
-      <div class="logo icon_logo-white"></div>
-      <div><span class="title">WORK</span>
-      </div>
+
+    <section id="work" data-width="full"  class="snap" ng-controller="WorksCtrl">  
+      <div class="cover">
+        <div id="logo-white" class="logo icon_logo-white"></div>
+        <div>
+          <span class="title" id="work-title">WORK</span>
+          <span ng-show="selectedWork" class="title">{{selectedWork.title}} {{selectedWork.description}}</span>
+        </div>
+      <div>
+      <work></work>
+     <center>
+        <nav ng-show="canShowNav()">
+          <a href="javascript:;" ng-click="toogleText(true)" ng-show="viewType == 'image'" class="icon_read"></a>
+          <a href="javascript:;" ng-click="toogleText(false)" ng-show="viewType == 'text'" class="icon_close"></a>
+        </nav>
+      </center>
     </section>
 
     <section id="clients" class="section-content-background drop-shadow-glow-layer round-top round-bottom snap">
@@ -145,10 +157,14 @@
 </script>
 <script type="text/javascript" src="app/libs/jquery-1.9.1.min.js"></script>
 <script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-resource/angular-resource.js"></script>
+<script src="vendor/angular-sanitize/angular-sanitize.js"></script>
 <script type="text/JavaScript" src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
 <script type="text/JavaScript" src="app/libs/jquery.snappoint-1.5.min.js"></script>
+<script type="text/JavaScript" src="app/libs/jquery.gridview.js"></script>
 <script type="text/javascript" src="app/script.js"></script>
 <script type="text/javascript" src="app/application.js"></script>
+
 </body>
 </html>
 

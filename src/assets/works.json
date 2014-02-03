@@ -1,0 +1,281 @@
+[
+   {
+      "title":"iPhone 5",
+      "description":"Launch",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"iPad",
+      "description":"Commercial",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"iPhone 5S",
+      "description":"Launch",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"International Radio",
+      "description":"Festival",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"Copa Radio",
+      "description":"Identity",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"Summit Marine",
+      "description":"Yacht Design",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"PMN",
+      "description":"Watch Design",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"Majo Fruithof",
+      "description":"Jewelery Collection",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   },
+   {
+      "title":"Bucherer",
+      "description":"Club 1888 China",
+      "metadata":
+      {
+         "tasks":
+         [
+            "Art Direction"
+         ],
+         "date":"2013"
+      },
+      "media":[
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"image",
+            "path":"dummy.png"
+         },
+         {
+            "type":"video",
+            "path":"dummy.mp4"
+         }
+      ],
+      "text":"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>"
+   }
+]
