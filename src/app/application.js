@@ -84,9 +84,7 @@ module.directive('work', function() {
         restrict: 'E',
         replace: true,
         templateUrl: 'app/templates/work.htm', 
-
         link: function(scope, element, attrs) {
-            scope.activeChild = undefined;
             scope.$watch('works', function(newval, oldval){
                 if(newval){
                     if (newval.length > 0)
@@ -94,12 +92,20 @@ module.directive('work', function() {
                 }
             },true);
             scope.toogleText = function(show) {
-                if (!scope.activeChild) return;
-                toogleText($('.gridViewChild:eq('+scope.activeChild+')'),show);
+                if (!scope.selectedWork) return;
+                toogleText($('.gridViewChild:eq('+scope.selectedWorkPos+')'),show);
             };
             function init() {
+                createGridView();
+                show();
+            }
+            function show() {
                 $('#work-title').hide();
                 $('#logo-white').hide();
+                $('.gridViewParent').show();
+                addMouseListener();
+            }
+            function createGridView() {
                 $('.gridViewParent').gridview({
                     animationSpeed: 300,
                     width: 938,
@@ -112,38 +118,27 @@ module.directive('work', function() {
                     animate:false,
                 });
                 $('.gridViewChild .media img').css({width: 300,height: 185});
-                $('.gridViewChild').mouseover(function() {
-                    if ( scope.activeChild ) return;
-                    $(this).children('.cover').hide();
-                });
-                $('.gridViewChild').mouseleave(function() {
-                    if ( scope.activeChild ) return;
-                    $(this).children('.cover').show();
-                });
-                $('.gridViewChild').click(function() {
-                    if ( scope.activeChild == undefined ) {
-                      scope.viewType = "image";
-                      var inVal = $( ".gridViewChild" ).index($(this));
-                      $('.gridViewParent').gridview('zoomTo', inVal);
-                      $('.media img').animate({width: 938,height:599}, 300);
-                      $(this).children('.cover').hide();
-                      $(this).children('.text').hide();
-                      scope.activeChild = inVal;
-                      scope.selectedWork = scope.works[inVal];
-                      scope.$apply();
-                    } else {
-                      scope.activeChild = undefined;
-                      scope.selectedWork = undefined;
-                      scope.viewType = "overview";
-                      $('.gridViewParent').gridview('zoom', {
-                        level: 3
-                      });
-                      $(this).children('.text').hide();
-                      $(this).children('.media').delay(200).fadeTo(150, 1);
-                      $('.media img').animate({width: 300,height: 185}, 300);
-                      scope.$apply();
-                    }
-                });
+            }
+            function maximize(element) {
+                var inVal = $( ".gridViewChild" ).index(element);
+                $('.gridViewParent').gridview('zoomTo', inVal);
+                $('.media img').animate({width: 938,height:599}, 300);
+                element.children('.cover').hide();
+                element.children('.text').hide();
+                scope.viewType = "image";
+                scope.selectedWork = scope.works[inVal];
+                scope.selectedWorkPos = inVal;
+                scope.$apply();
+            }
+            function minimize(element) {
+                $('.gridViewParent').gridview('zoom', { level: 3 });
+                element.children('.text').hide();
+                element.children('.media').delay(200).fadeTo(150, 1);
+                $('.media img').animate({width: 300,height: 185}, 300);
+                scope.selectedWork = undefined;
+                scope.selectedWorkPos = undefined;
+                scope.viewType = "overview";
+                scope.$apply();
             }
             function toogleText(element, show) {
                 if (show) {
@@ -154,6 +149,27 @@ module.directive('work', function() {
                     element.children('.media').removeClass('blur');
                     element.children('.text').hide();
                     scope.viewType = "image";
+                }
+                setTimeout(function(){ scope.$apply(); });
+            }
+            function addMouseListener() {
+                $('.gridViewChild').mouseover(function() { handleMouseOver($(this)) });
+                $('.gridViewChild').mouseleave(function() { handleMouseOut($(this)) });
+                $('.gridViewChild').click(function() { handleMouseClick($(this)) });
+            }
+            function handleMouseOver(element) {
+                if ( scope.selectedWork ) return;
+                    element.children('.cover').hide();
+            }
+            function handleMouseOut(element) {
+                if ( scope.selectedWork ) return;
+                    element.children('.cover').show();
+            }
+            function handleMouseClick(element) {
+                if ( scope.selectedWork == undefined ) {
+                    maximize(element);
+                } else {
+                    minimize(element);
                 }
             }
         }

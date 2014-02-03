@@ -632,6 +632,7 @@ section {
     width: 940px;
     font-size: 18px;
     line-height: 0px;
+    display:none;
  }
 
 #work .gridViewChild {
