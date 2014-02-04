@@ -62,6 +62,11 @@
           <a href="javascript:;" ng-click="toogleText(true)" ng-show="viewType == 'image'" class="icon_read"></a>
           <a href="javascript:;" ng-click="toogleText(false)" ng-show="viewType == 'text'" class="icon_close"></a>
         </nav>
+        <nav ng-show="canShowNav()" class="bullets">
+          <ul>
+            <li ng-repeat="media in selectedWork.media" ng-click="selectMedia($index)"></li>
+          </ul>
+        </nav>
       </center>
     </section>
 

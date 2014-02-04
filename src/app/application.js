@@ -93,8 +93,15 @@ module.directive('work', function() {
             },true);
             scope.toogleText = function(show) {
                 if (!scope.selectedWork) return;
-                toogleText($('.gridViewChild:eq('+scope.selectedWorkPos+')'),show);
+                toogleText(getElement(),show);
             };
+            scope.selectMedia = function(index) {
+                showMedia(index+1);
+            }
+            scope.video = function(event) {
+                var videoElements = angular.element(event.srcElement);
+                videoElements[0].pause();
+            }
             function init() {
                 createGridView();
                 show();
@@ -117,24 +124,36 @@ module.directive('work', function() {
                     level:3,
                     animate:false,
                 });
-                $('.gridViewChild .media img').css({width: 300,height: 185});
             }
             function maximize(element) {
                 var inVal = $( ".gridViewChild" ).index(element);
                 $('.gridViewParent').gridview('zoomTo', inVal);
                 $('.media img').animate({width: 938,height:599}, 300);
+                $('.media videogular video').animate({width: 938,height:599}, 300);
                 element.children('.cover').hide();
                 element.children('.text').hide();
                 scope.viewType = "image";
                 scope.selectedWork = scope.works[inVal];
                 scope.selectedWorkPos = inVal;
                 scope.$apply();
+                showMedia(1);
+            }
+            function showMedia(pos) {
+                element.children('.media').hide();
+                element.children('.media:eq('+pos+')').show();
+                setNav(pos);
+                toogleText(getElement(),false);
+            }
+            function setNav(pos) {
+                $('nav.bullets ul li').removeClass('active');
+                $('nav.bullets ul li:eq('+(pos-1)+')').addClass('active');
             }
             function minimize(element) {
-                $('.gridViewParent').gridview('zoom', { level: 3 });
-                element.children('.text').hide();
+                toogleText(element,false);
                 element.children('.media').delay(200).fadeTo(150, 1);
+                $('.gridViewParent').gridview('zoom', { level: 3 });
                 $('.media img').animate({width: 300,height: 185}, 300);
+                $('.media videogular video').animate({width: 300,height: 185}, 300);
                 scope.selectedWork = undefined;
                 scope.selectedWorkPos = undefined;
                 scope.viewType = "overview";
@@ -171,6 +190,9 @@ module.directive('work', function() {
                 } else {
                     minimize(element);
                 }
+            }
+            function getElement() {
+                return $('.gridViewChild:eq('+scope.selectedWorkPos+')');
             }
         }
     };

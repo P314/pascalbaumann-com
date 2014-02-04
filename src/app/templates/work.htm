@@ -1,15 +1,22 @@
-<div class="gridViewParent">
-	<div class="gridViewChild round-top round-bottom" ng-repeat="work in works">
+<div class="gridViewParent" >
+	<div class="gridViewChild round-top round-bottom drop-shadow-glow-layer" ng-repeat="work in works">
 	  <div class="cover">
 	    <span>{{work.title}}<br>{{work.description}}</span>
 	  </div>
 	  <div class="media">
-	    <img src="assets/images/{{work.media[0].path}}">
+	  	<ul>
+	  		<li ng-repeat="media in work.media">
+	  			<type1 ng-if="media.type=='image'">
+	  				<img src="assets/images/{{media.path}}" width="300px" height="185px">
+	  			</type1>
+    			<type2 ng-if="media.type=='video'">
+    			</type2>
+    		</li>
+	    </ul>
 	  </div>
 	  <div class="text">
 	    <div class="text-inner">
-	      <p>{{work.metadata.tasks[0]}}<br>{{work.date}}</p>
-	      <p>{{work.metadata.date}}</p>
+	      <p>{{work.metadata.tasks[0]}}<br>{{work.metadata.date}}</p>
 	      <p ng-bind-html="work.text"></p>
 	    </div>
 	  </div>
