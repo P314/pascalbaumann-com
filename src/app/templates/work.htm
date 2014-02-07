@@ -7,9 +7,10 @@
 	  	<ul>
 	  		<li ng-repeat="media in work.media">
 	  			<type1 ng-if="media.type=='image'">
-	  				<img src="assets/images/{{media.path}}" width="300px" height="185px">
+	  				<img src="assets/works/{{work.title}}/{{media.path}}" width="300px" height="185px">
 	  			</type1>
     			<type2 ng-if="media.type=='video'">
+
     			</type2>
     		</li>
 	    </ul>

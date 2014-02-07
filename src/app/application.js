@@ -6,7 +6,7 @@ module.factory('jsonLoader', function($http){
         getWorks: function(callback){
             var httpRequest = $http({
             method: 'GET',
-            url: '/assets/works.json'
+            url: '/assets/works/works.json'
             }).success(function(data, status) {
                 callback(data);
             });
@@ -14,7 +14,7 @@ module.factory('jsonLoader', function($http){
        getClients: function(callback){
             var httpRequest = $http({
             method: 'GET',
-            url: '/assets/clients.json'
+            url: '/assets/clients/clients.json'
             }).success(function(data, status) {
                 callback(data);
             });
@@ -175,6 +175,11 @@ module.directive('work', function() {
                 $('.gridViewChild').mouseover(function() { handleMouseOver($(this)) });
                 $('.gridViewChild').mouseleave(function() { handleMouseOut($(this)) });
                 $('.gridViewChild').click(function() { handleMouseClick($(this)) });
+            }
+            function removeMouseListener() {
+                $('.gridViewChild').mouseover(function() {});
+                $('.gridViewChild').mouseleave(function() {});
+                $('.gridViewChild').click(function() {});
             }
             function handleMouseOver(element) {
                 if ( scope.selectedWork ) return;

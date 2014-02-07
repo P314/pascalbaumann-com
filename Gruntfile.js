@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  
   require('load-grunt-tasks')(grunt);
 
   var config = {
@@ -6,7 +7,7 @@ module.exports = function(grunt) {
     distDir: 'dist'
   };
 
-function dateFormat(date, format) {
+  function dateFormat(date, format) {
     format = format.replace("ss", (date.getSeconds() < 10 ? '0' : '') + date.getSeconds()); 
     format = format.replace("mm", (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()); 
     format = format.replace("hh", (date.getHours() < 10 ? '0' : '') + date.getHours());     
@@ -43,6 +44,11 @@ function dateFormat(date, format) {
       assets: {
         files: [
           { dest: '<%= config.distDir %>/assets/', src: '**', expand: true, cwd: '<%= config.srcDir %>/assets/' },
+        ]
+      },
+      uploads: {
+        files: [
+          { dest: '<%= config.distDir %>/assets/', src: '**', expand: true, cwd: 'uploads/' },
         ]
       },
     },
@@ -128,16 +134,26 @@ function dateFormat(date, format) {
           dest: '<%= config.distDir %>/styles/main.css'
         }]
       }
+    },
+    processWorksDir: {
+      options: {
+        srcDir: 'uploads/works',
+        destFile: 'uploads/works/works.json'
+      }
     }
   };
+
+  grunt
+    .loadTasks('./grunt-tasks'); 
 
   grunt
     .initConfig(tasksConfig);
 
   grunt
     .registerTask('default', [''])
-    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts','encodeImages']) 
+    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts','encodeImages', 'uploads']) 
     .registerTask('deploy', ['build', 'sshexec:make-release-dir', 'sshexec:update-symlinks', 'sftp:deploy'])
     .registerTask('server', ['connect:server', 'watch'])
     .registerTask('font', ['webfont'])
+    .registerTask('uploads', ['processWorksDir', 'copy:uploads'])
 };
