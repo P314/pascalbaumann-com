@@ -9,8 +9,6 @@ module.exports = function (grunt) {
         var fs = require('fs'),
             path = require('path'),
             options = this.options({}),
-            pending = 0,
-            dead = false,
             projects = []
 
         function readDir(dir) {
@@ -32,7 +30,7 @@ module.exports = function (grunt) {
         function dirAction(path) {
             var splitedPath = path.split("/");
             var dirName = splitedPath[splitedPath.length-1];
-            projects.push({title:dirName, description:'', metadata:{tasks:'', date:''}, media:[], text:''});
+            projects.push({title:dirName, description:'', metadata:{category:'', date:''}, media:[], text:''});
         }
 
         function fileAction(path){
