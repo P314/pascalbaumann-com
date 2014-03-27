@@ -29,7 +29,7 @@ var $container = $('.background'),
   }
   jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
 })(jQuery,'smartresize');
-$(document).ready(function() 
+$(document).ready(function()
 {
 	intro();scroller();resize();
 	$(window).smartresize(function()
@@ -38,7 +38,7 @@ $(document).ready(function()
 	});
 	function resize()
 	{
-		layout();	
+		layout();
 		setBackgroundPosition();
 	}
 	$(window).scroll(function ()
@@ -59,7 +59,7 @@ function detectTouchSupport()
 	    false;
 	}
 }
-function touchHover() 
+function touchHover()
 {
     $('*').on('touchstart', function () {
         $(this).trigger('hover');
@@ -89,19 +89,19 @@ function setBackgroundPosition()
 	{
 		if ( contentPos > 1 )
 			contentPos--;
-	}		
+	}
 	startContentY = positions[contentPos-1][0];
 	nextContentY = positions[contentPos][0];
 	var startBackgroundY = positions[contentPos-1][1];
 	var nextBackgroundY = positions[contentPos][1];
 	var distanceToScroll = nextContentY-scrollTop;
-	var distanceToMove = nextBackgroundY-backgroundY;	
+	var distanceToMove = nextBackgroundY-backgroundY;
 	var scrollPercentage = ((scrollTop-startContentY) / (nextContentY-startContentY))*100;
 	var moveDist = (nextBackgroundY - startBackgroundY);
-	var moveY = (moveDist / 100)*scrollPercentage;	
+	var moveY = (moveDist / 100)*scrollPercentage;
 	backgroundY = positions[contentPos-1][1]+moveY;
-	var coords = '50% ' + backgroundY + 'px'; 
-	$container.css({ backgroundPosition: coords });	
+	var coords = '50% ' + backgroundY + 'px';
+	$container.css({ backgroundPosition: coords });
 }
 function layout()
 {
@@ -109,7 +109,7 @@ function layout()
 	var css = [];
 	var yPointer = 0;
 	$('section').each(function(i,v)
-	{	
+	{
 		var cssobj = { };
 		if ( $(this).attr('data-width') == 'full' )
 			cssobj.width = browserWidth;
@@ -117,28 +117,28 @@ function layout()
 	});
 	var i = 0;
 	$('section').each(function(i,v)
-	{		
+	{
 	    $(this).css(css[i]);
 		i++;
 	});
 }
 function intro()
 {
-	setTimeout(function () {
+	//setTimeout(function () {
         $('.background').addClass('fadein-background');
-    }, 10);
-	setTimeout(function () {
+  //  }, 10);
+	//setTimeout(function () {
         $('.start').addClass('fadein-intro');
-    }, 1200);
-	setTimeout(function () {
+  //  }, 1200);
+	//setTimeout(function () {
         $('.logo').addClass('fadein-logo');
-    }, 1200);
-	setTimeout(function () {
+  //  }, 1200);
+	//setTimeout(function () {
 		$('body').css({'overflow':'visible'});
-    }, 2000);
-	setTimeout(function () {
+  //  }, 2000);
+	//setTimeout(function () {
         $('.intro-continue').addClass('fadein');
-    }, 2000);
+  //  }, 2000);
 }
 function scroller()
 {
@@ -149,13 +149,13 @@ function scroller()
 		var y = element.position().top;
 		if ( diffY ) {
 			y -= diffY;
-		}	
+		}
 		return y;
 	}
 	$(".scroll").click(function(event)
-	{	
+	{
 		var targetY = calculateY($(this.hash));
-		if ( targetY ) 
+		if ( targetY )
 		{
 			event.preventDefault();
 			$('html,body').animate({scrollTop:targetY}, 500, function(){});
@@ -163,11 +163,11 @@ function scroller()
 	});
 	/*
 	$(".snap").snapPoint(
-	{ 
-	    scrollDelay: 1500,    
-	    scrollSpeed: 90,      
-	    outerTopOffset: 100,   
-	    innerTopOffset: 200 
+	{
+	    scrollDelay: 1500,
+	    scrollSpeed: 90,
+	    outerTopOffset: 100,
+	    innerTopOffset: 200
 	});
 */
 };

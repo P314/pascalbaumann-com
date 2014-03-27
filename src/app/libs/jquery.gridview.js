@@ -123,7 +123,6 @@
 		$this.css({
 		  display: 'block',
 		  height: opts.height + 'px',
-		  overflow: 'hidden',
 		  position: 'relative',
 		  width: opts.width + 'px'
 		});

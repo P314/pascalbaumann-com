@@ -6,7 +6,7 @@
     <meta name="description" content="Pascal Baumann is an Art Director based in Zürich, Switzerland.">
     <meta property="og:title" content="Pascal Baumann - Art Director"/>
     <meta property="og:description" content="Pascal Baumann is an Art Director based in Zürich, Switzerland." />
-    <meta property="og:url" content="http://www.pascalbaumann.com"/>  
+    <meta property="og:url" content="http://www.pascalbaumann.com"/>
     <link rel="stylesheet" href="styles/main.css" />
     <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
   </head>
@@ -17,15 +17,15 @@
   </div>
   <div class="content">
     <div class="start-container">
-      <section id="start" class="start" class="drop-shadow-glow-layer round-bottom">  
+      <section id="start" class="start" class="drop-shadow-glow-layer round-bottom">
           <div class="intro" >
             <div>
               <div class="icon-hello"></div>
-              <p class="drop-shadow">This is me, Pascal Baumann. Everyone just calls me Pi.<br> 
+              <p class="drop-shadow">This is me, Pascal Baumann. Everyone just calls me Pi.<br>
               Exactly: 3,14159. I am a freelance art director and designer<br>
-              working around the globe. I love it! I am quite easy, focussed,<br> 
-              visionary, well connected and only a bit peacocky...<br><br> 
-              Now, please, move your fingers!</p>    
+              working around the globe. I love it! I am quite easy, focussed,<br>
+              visionary, well connected and only a bit peacocky...<br><br>
+              Now, please, move your fingers!</p>
             </div>
             <div class="social-menu-top">
               <div id="social-menu">
@@ -37,7 +37,7 @@
                 <div><a href="assets/Three One Four GmbH.vcf" target="_blank" class="icon_download drop-shadow"></a></div>
               </div>
             </div>
-            <div class="intro-continue">  
+            <div class="intro-continue">
             <center>
               <div class="intro-continue-nav">
                 <a href="#work" class="icon_arrow-down drop-shadow scroll"></a>
@@ -48,26 +48,35 @@
       </section>
     </div>
 
-    <section id="work" data-width="full"  class="snap" ng-controller="WorksCtrl">  
+    <section id="work" data-width="full"  class="snap" ng-controller="WorksCtrl">
       <div class="cover">
-        <div id="logo-white" class="logo icon_logo-white"></div>
+        <div class="header">
+           <div id="logo-white" class="logo icon_logo-white"></div>
+           <span ng-show="selectedWork" class="title">{{selectedWork.title}} {{selectedWork.description}}</span>
+         </div>
         <div>
           <span class="title" id="work-title">WORK</span>
-          <span ng-show="selectedWork" class="title">{{selectedWork.title}} {{selectedWork.description}}</span>
         </div>
-      <div>
-      <work></work>
-     <center>
-        <nav ng-show="canShowNav()">
-          <a href="javascript:;" ng-click="toogleText(true)" ng-show="viewType == 'image'" class="icon_read"></a>
-          <a href="javascript:;" ng-click="toogleText(false)" ng-show="viewType == 'text'" class="icon_close"></a>
-        </nav>
-        <nav ng-show="canShowNav()" class="bullets">
-          <ul>
-            <li ng-repeat="media in selectedWork.media" ng-click="selectMedia($index)"></li>
-          </ul>
-        </nav>
-      </center>
+      </div>
+      <div class="work-container">
+        <work></work>
+        <div class="nav-container">
+           <nav ng-show="canShowNav()" class="media bullets">
+             <ul>
+               <li ng-repeat="media in selectedWork.media" ng-click="selectMedia($index)"></li>
+             </ul>
+           </nav>
+           <nav ng-show="canShowPageNav()" class="page bullets">
+             <ul>
+               <li ng-repeat="page in pages" ng-click="selectPage($index)"></li>
+             </ul>
+           </nav>
+           <nav ng-show="canShowNav()">
+             <a href="javascript:;" ng-click="toogleText(true)" ng-show="viewType == 'image'" class="icon_read"></a>
+             <a href="javascript:;" ng-click="toogleText(false)" ng-show="viewType == 'text'" class="icon_close"></a>
+           </nav>
+         </div>
+      </div>
     </section>
 
     <section id="clients" class="section-content-background drop-shadow-glow-layer round-top round-bottom snap">
@@ -93,8 +102,8 @@
         <article>
           <div class="description">
             <span class="title">It’s boredom or glory.</span>
-            <p>It’s a choice: Routine or the real creative work. Lala-land or commitment.<br> 
-            And yes, although I freelance for Apple Inc. I will love your small business.<br>  
+            <p>It’s a choice: Routine or the real creative work. Lala-land or commitment.<br>
+            And yes, although I freelance for Apple Inc. I will love your small business.<br>
             My fee comes  second. It’s the project that counts.  Let’s go for it then.</p>
           </div>
         </article>
@@ -161,6 +170,7 @@
 
 </script>
 <script type="text/javascript" src="app/libs/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="app/libs/jquery.transit.min.js"></script>
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-resource/angular-resource.js"></script>
 <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
@@ -172,4 +182,3 @@
 
 </body>
 </html>
-
