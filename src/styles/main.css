@@ -16,7 +16,7 @@ html, body {
 
 .background-composition {
 	background-color:#000000;
-	opacity: .4;
+	opacity: .8;
 	transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
 	-webkit-transition: opacity .25s ease-in-out;
@@ -106,6 +106,8 @@ a, p, span, small {
 	text-size-adjust:none;
 }
 
+.icon_arrow-left:hover,
+.icon_arrow-right:hover,
 .icon_arrow-down:hover,
 .icon_arrow-up:hover,
 .icon_download:hover,
@@ -647,17 +649,29 @@ section {
   width:100%;
 }
 
-#work .gridViewPage {
+#work .gridView {
   position:relative;
   margin: 0 auto;
+  top:40px;
   width: 940px;
   height: 599px;
-  display:none;
+}
+
+#work .gridViewContainer {
+  position:relative;
+  width: 940px;
+  height: 599px;
+  overflow:hidden;
+}
+
+#work .gridViewPage {
+  position:absolute;
+  width: 940px;
+  height: 599px;
 }
 
 #work .gridViewParent {
   position:relative;
-  margin: 0 auto;
   width: 940px;
   height:599px;
   font-size: 18px;
@@ -668,7 +682,8 @@ section {
 #work .gridViewChild {
 	width:300px;
 	height:185px;
-	background-color: #222222;
+  overflow:hidden;
+  display:none;
 }
 
 #work nav {
@@ -699,6 +714,13 @@ section {
 	letter-spacing:0pt;
 	line-height:140%;
 	text-align:center;
+}
+
+#work .gridViewChild .cover span.title {
+  font-family: 'OpenSansSemiBold';
+  font-size:18px;
+  color:black;
+  line-height:140%;
 }
 
 #work .gridViewChild .media ul li {
@@ -741,14 +763,28 @@ section {
 	color:black;
 }
 
+#work .gridViewChild .text span.title {
+  font-family: 'OpenSansSemiBold';
+  font-size:18px;
+  color:black;
+  line-height:140%;
+}
+
+#work .gridViewChild .text span.subtitle {
+  font-family: 'OpenSansLight';
+  font-size:18px;
+  color:black;
+  line-height:140%;
+}
+
 #work .nav-container {
   width: 940px;
   height: 200px;
-  margin: 20px auto;
+  margin: 60px auto;
 }
 
 #work nav.bullets {
-	background-color:rgba(255,255,255,0.05);
+	background-color:rgba(255,255,255,0.2);
 	width:940px;
 	height:50px;
 	position:relative;
@@ -768,6 +804,22 @@ section {
 		progid:DXImageTransform.Microsoft.dropshadow(OffX = 0,OffY = 1,Color = #3ffffff,Positive = true)";
 	filter:progid:DXImageTransform.Microsoft.Glow(Color=#3000000,Strength=20)
 		progid:DXImageTransform.Microsoft.dropshadow(OffX = 0,OffY = 1,Color = #3ffffff,Positive = true);
+}
+
+a.icon_arrow-left {
+  position: absolute;
+  top:280px;
+  left:-50px;
+  font-size:40px;
+  color:white;
+}
+
+a.icon_arrow-right {
+  position: absolute;
+  top:280px;
+  right:-50px;
+  font-size:40px;
+  color:white;
 }
 
 #work nav.bullets ul {
@@ -804,13 +856,14 @@ section {
 #work nav.bullets li:before {
 	content: "\f10e";
 	color:#FFFFFF;
-	font-size:8px;
+	font-size:9px;
 }
 
 #work nav.bullets li.active:before {
 	content: "\f10d";
 	color:rgb(0,128,255);
 	font-size:12px;
+  vertical-align:-1px;
 }
 
 #work nav.bullets li.active {
@@ -1058,6 +1111,17 @@ section {
 #map_canvas span {
 	font-size:9px;
 	font-family: "OpenSansLight";
+}
+
+.leaflet-container a {
+  font-size:12px;
+  font-family: "OpenSansLight";
+	color:black;
+  text-decoration:none;
+}
+
+.leaflet-container a:hover  {
+  color:rgb(0,128,255);
 }
 
 #dummy {
