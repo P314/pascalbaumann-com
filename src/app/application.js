@@ -319,7 +319,6 @@ module.directive('work', function($compile) {
               } else if (scope.selectedMediaPos > pos && pos < totalMedia ) {
                 $('.media:eq('+workPos+') ul li:eq('+(scope.selectedMediaPos-1)+')').transition({left: offsetX+'px'}, time);
               }
-              setArrowNav();
               scope.selectedMediaPos = pos;
               toogleText(getElement(),false,false);
             }
@@ -405,6 +404,8 @@ module.directive('work', function($compile) {
                 scope.selectedWorkPos = undefined;
                 scope.viewType = "overview";
                 scope.$apply();
+
+                setArrowNav();
             }
             function toogleText(element, show, animate) {
                 if (show) {

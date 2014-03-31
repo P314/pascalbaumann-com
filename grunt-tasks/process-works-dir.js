@@ -29,9 +29,12 @@ module.exports = function (grunt) {
 
         function dirAction(path) {
             var splitedPath = path.split("/");
-            var dirName = splitedPath[splitedPath.length-1];
-            var workName = dirName.replace("_"," ");
-            projects.push({title:workName, description:'', metadata:{category:'', date:''}, media:[], text:''});
+            var plainPath = splitedPath[splitedPath.length-1];
+            var plainPathWithWhitespace = plainPath.replace(/\-/g," ");
+            var splitedPlainPath = plainPathWithWhitespace.split("_");
+            var title = splitedPlainPath[0];
+            var description = (splitedPlainPath.length > 1) ? splitedPlainPath[1]:"";
+            projects.push({title:title, description:description, metadata:{category:'', date:''}, media:[], text:''});
         }
 
         function fileAction(path,file){
