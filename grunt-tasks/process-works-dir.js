@@ -32,8 +32,8 @@ module.exports = function (grunt) {
             var plainPath = splitedPath[splitedPath.length-1];
             var plainPathWithWhitespace = plainPath.replace(/\-/g," ");
             var splitedPlainPath = plainPathWithWhitespace.split("_");
-            var title = splitedPlainPath[0];
-            var description = (splitedPlainPath.length > 1) ? splitedPlainPath[1]:"";
+            var title = splitedPlainPath[1];
+            var description = (splitedPlainPath.length > 2) ? splitedPlainPath[2]:"";
             projects.push({title:title, description:description, metadata:{category:'', date:''}, media:[], text:''});
         }
 
