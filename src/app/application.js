@@ -93,7 +93,7 @@ module.directive('work', function($compile) {
 
             function draw() {
               var tmpl = '<div class="gridView">', maxWorksInPage = 9, worksInPage = 0;
-              tmpl+= '<nav id="nav.arrows">';
+              tmpl+= '<nav id="nav-arrows">';
               tmpl+= '  <a href="javascript:;" ng-click="previousItem()" class="icon_arrow-left"></a>';
               tmpl+= '  <a href="javascript:;" ng-click="nextItem()" class="icon_arrow-right"></a>';
               tmpl+= '</nav>';
@@ -187,6 +187,7 @@ module.directive('work', function($compile) {
                 videoElements[0].pause();
             }
             function init() {
+                setArrowNav();
                 setTimeout(function () {
                     show();
                     createGridView();
@@ -274,6 +275,7 @@ module.directive('work', function($compile) {
                 scope.$apply();
 
                 $('#logo-white').hide();
+                setArrowNav();
 
                 var xPos = 0;
                 $('.gridViewChild:eq('+workPos+') .media ul li').each(function(i,j) {
@@ -314,6 +316,7 @@ module.directive('work', function($compile) {
               } else if (scope.selectedMediaPos > pos && pos < totalMedia ) {
                 $('.media:eq('+workPos+') ul li:eq('+(scope.selectedMediaPos-1)+')').transition({left: offsetX+'px'}, time);
               }
+              setArrowNav();
               scope.selectedMediaPos = pos;
               toogleText(getElement(),false,false);
             }
@@ -342,6 +345,26 @@ module.directive('work', function($compile) {
                 $('.gridViewPage:eq('+(scope.selectedPage-1)+')').transition({left: 960+'px'}, time);
               }
               scope.selectedPage = pos;
+            }
+            function setArrowNav() {
+              var totalPages = $('.gridViewPage').length;
+              var workPos = scope.selectedWorkPos;
+              var totalMedia = $('.media:eq('+workPos+') ul li').length;
+              var show = true;
+              if (scope.viewType == "overview") {
+                if (totalPages < 2) {
+                  show = false;
+                }
+              } else if ( scope.viewType == "image"){
+                if (totalMedia < 2) {
+                  show = false;
+                }
+              }
+              if (show) {
+                $('#nav-arrows').show();
+              } else {
+                $('#nav-arrows').hide();
+              }
             }
             function setPageNav(pos) {
                 $('nav.page ul li').removeClass('active');
