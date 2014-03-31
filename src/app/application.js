@@ -35,6 +35,9 @@ function WorksCtrl($scope, jsonLoader){
     $scope.canShowPageNav = function() {
         return ($scope.viewType == 'overview' && $scope.works.length > 9 ) ? true:false;
     };
+    $scope.canShowTextButton = function() {
+        return ($scope.viewType == 'image' && $scope.selectedWork.text.length > 0) ? true:false;
+    };
     jsonLoader.getWorks(function(data){
         $scope.works = data;
     });

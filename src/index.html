@@ -72,7 +72,7 @@
              </ul>
            </nav>
            <nav ng-show="canShowNav()">
-             <a href="javascript:;" ng-click="toogleText(true)" ng-show="viewType == 'image'" class="icon_read"></a>
+             <a href="javascript:;" ng-click="toogleText(true)" ng-show="canShowTextButton()" class="icon_read"></a>
              <a href="javascript:;" ng-click="toogleText(false)" ng-show="viewType == 'text'" class="icon_close"></a>
            </nav>
          </div>
