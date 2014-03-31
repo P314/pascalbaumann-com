@@ -113,7 +113,7 @@ module.directive('work', function($compile) {
                   var media = work.media[j];
                   if (media.type=='image') {
                     tmpl +='  <li>';
-                    tmpl +='      <img src="assets/works/'+work.title+'/'+media.path+'" class="round-top round-bottom" width="300px" height="185px">';
+                    tmpl +='      <img src="assets/works/'+media.path+'" class="round-top round-bottom" width="300px" height="185px">';
                     tmpl +='  </li>';
                   }
                   if (media.type=='video') {}

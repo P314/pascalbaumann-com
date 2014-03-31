@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                     dirAction(path);
                     var subList = fs.readdirSync(path);
                     subList.forEach(function(subFile) {
-                        fileAction(subFile);
+                        fileAction(path, subFile);
                         writeFile();
                     });
                 }
@@ -30,16 +30,19 @@ module.exports = function (grunt) {
         function dirAction(path) {
             var splitedPath = path.split("/");
             var dirName = splitedPath[splitedPath.length-1];
-            projects.push({title:dirName, description:'Watches', metadata:{category:'Watches', date:'December 2012'}, media:[], text:'<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et</p><p>Lorem ipsum dolor sit amet, onumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, consetetur sadipscing elitr consetetur sadipscing elitr.</p>'});
+            var workName = dirName.replace("_"," ");
+            projects.push({title:workName, description:'', metadata:{category:'', date:''}, media:[], text:''});
         }
 
-        function fileAction(path){
-            var fileType = path.substring(path.length-3);
+        function fileAction(path,file){
+            var splitedPath = path.split("/");
+            var dirName = splitedPath[splitedPath.length-1];
+            var fileType = file.substring(file.length-3);
             if (fileType == "png" || fileType == "jpg") {
-                projects[projects.length-1].media.push({type:"image", path:path});
+                projects[projects.length-1].media.push({type:"image", path:dirName+"/"+file});
             }
             if (fileType == "mp4" || fileType == "ogg" || fileType == "webm") {
-                projects[projects.length-1].media.push({type:"video", path:path});
+                projects[projects.length-1].media.push({type:"video", path:file});
             }
         }
 
