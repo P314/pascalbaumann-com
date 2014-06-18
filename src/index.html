@@ -34,7 +34,7 @@
                 <div><a href="skype:pascal.baumann" class="social-icon icon_skype" target="_blank" title="skype"></a></div>
                 <div><a href="http://www.linkedin.com/in/pbaumann" target="_blank" class="icon_linkedin" title="linkedin"></a></div>
                 <div><a href="https://twitter.com/P_314" target="_blank" class="social-icon icon_twitter" title="twitter"></a></div>
-                <div><a href="assets/Three One Four GmbH.vcf" target="_blank" class="icon_download drop-shadow" title="vcard"></a></div>
+                <div><a href="assets/where/Three One Four GmbH.vcf" target="_blank" class="icon_download drop-shadow" title="vcard"></a></div>
               </div>
             </div>
             <div class="intro-continue">
@@ -47,11 +47,10 @@
           </div>
       </section>
     </div>
-
     <section id="work" data-width="full"  class="snap" ng-controller="WorksCtrl">
       <div class="cover">
         <div class="header">
-           <div id="logo-white" class="logo icon_logo-white"></div>
+           <div id="logo-white" ng-hide="selectedWorkPos !== undefined" class="logo icon_logo-white"></div>
            <span ng-show="selectedWork" class="title">{{selectedWork.title}}</span>
          </div>
         <div>
@@ -78,7 +77,6 @@
          </div>
       </div>
     </section>
-
     <section id="clients" class="section-content-background drop-shadow-glow-layer round-top round-bottom snap">
       <div class="section-content clients">
       <article>
@@ -86,17 +84,18 @@
         <div class="logos" ng-controller="ClientsCtrl">
           <div class="client-logo" ng-repeat="client in clients">
             <div class="front">
-              <img src="assets/clients/{{client.imagepath}}" />
+              <img src="assets/clients/{{client.imagepath}}" width="{{client.width}}" height="{{client.height}}" />
             </div>
             <div class="back">
               <span>{{client.label}}</span>
+            </div>
+            <div class="back-anim">
             </div>
           </div>
         </div>
       </article>
       </div>
     </section>
-
     <section id="who" class="snap">
       <div class="section-content who">
         <article>
@@ -164,19 +163,17 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-47003723-1', 'pascalbaumann.com');
   ga('send', 'pageview');
-
 </script>
 <script type="text/javascript" src="app/libs/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="app/libs/jquery.transit.min.js"></script>
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-resource/angular-resource.js"></script>
 <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+<script src="vendor/angular-touch/angular-touch.js"></script>
 <script type="text/JavaScript" src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
 <script type="text/javascript" src="app/script.js"></script>
 <script type="text/javascript" src="app/application.js"></script>
-
 </body>
 </html>
