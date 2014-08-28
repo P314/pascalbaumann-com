@@ -9,6 +9,7 @@ module.exports = function (grunt) {
         var fs = require('fs'),
             path = require('path'),
             options = this.options({}),
+            shell = require('shelljs'),
             projects = []
 
         function readDir(dir) {
@@ -40,12 +41,21 @@ module.exports = function (grunt) {
         function fileAction(path,file){
             var splitedPath = path.split("/");
             var dirName = splitedPath[splitedPath.length-1];
+            var fileName = file.substring(0,file.length-4);
             var fileType = file.substring(file.length-3);
             if (fileType == "png" || fileType == "jpg") {
                 projects[projects.length-1].media.push({type:"image", path:dirName+"/"+file});
             }
-            if (fileType == "mp4" || fileType == "ogg" || fileType == "webm") {
-                projects[projects.length-1].media.push({type:"video", path:file});
+            if (fileType == "mov") {
+                shell.exec("mkdir -p uploads/works/" + dirName + "/generated");
+                var src = "uploads/works/" + dirName + "/" + fileName + ".mov";
+                var dest = "uploads/works/" + dirName + "/generated/" + fileName;
+                grunt.log.write(">> ".green+"convert mp4 from " + src .green + " \n");
+                shell.exec("ffmpeg -loglevel warning -i " + src + " -vcodec libx264 -crf 20 -pix_fmt yuv420p -y " + dest + ".mp4");
+                grunt.log.write(">> ".green+"convert ogv from " + src .green + " \n");
+                shell.exec("ffmpeg -loglevel warning -i " + src + " -c:v libtheora -c:a libvorbis -q:v 10 -q:a 10 -y " + dest + ".ogv");
+                var path = {mp4:"uploads/works/" + dirName + "/generated/" + fileName + ".mp4", ogg:"uploads/works/" + dirName + "/generated/" + fileName + ".ogg"};
+                projects[projects.length-1].media.push({type:"video", path:path});
             }
         }
 

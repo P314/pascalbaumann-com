@@ -144,13 +144,14 @@ function scroller()
 {
 	function calculateY(element)
 	{
-		var pTrans = element.css('-webkit-transform').split(',').map(parseFloat);
-		var diffY = pTrans[5]/pTrans[3];
 		var y = element.position().top;
-		if ( diffY ) {
-			y -= diffY;
+		if (element.hasClass('-webkit-transform')) {
+				var pTrans = element.css('-webkit-transform').split(',').map(parseFloat);
+				var diffY = pTrans[5]/pTrans[3];
+				if ( diffY ) {
+					y -= diffY;
+				}
 		}
-		return y;
 	}
 	$(".scroll").click(function(event)
 	{
@@ -161,13 +162,4 @@ function scroller()
 			$('html,body').animate({scrollTop:targetY}, 500, function(){});
 		}
 	});
-	/*
-	$(".snap").snapPoint(
-	{
-	    scrollDelay: 1500,
-	    scrollSpeed: 90,
-	    outerTopOffset: 100,
-	    innerTopOffset: 200
-	});
-*/
 };

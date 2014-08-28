@@ -2,6 +2,9 @@
   "name": "pascalbaumann-com",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.2.10"
+    "angular": "~1.2.10",
+    "jquery.transit": "~0.9.12",
+    "jquery": "~2.1.1",
+    "object-fit": "~0.3.4"
   }
 }

@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  
+
   require('load-grunt-tasks')(grunt);
 
   var config = {
@@ -8,11 +8,11 @@ module.exports = function(grunt) {
   };
 
   function dateFormat(date, format) {
-    format = format.replace("ss", (date.getSeconds() < 10 ? '0' : '') + date.getSeconds()); 
-    format = format.replace("mm", (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()); 
-    format = format.replace("hh", (date.getHours() < 10 ? '0' : '') + date.getHours());     
-    format = format.replace("DD", (date.getDate() < 10 ? '0' : '') + date.getDate()); 
-    format = format.replace("MM", (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1)); 
+    format = format.replace("ss", (date.getSeconds() < 10 ? '0' : '') + date.getSeconds());
+    format = format.replace("mm", (date.getMinutes() < 10 ? '0' : '') + date.getMinutes());
+    format = format.replace("hh", (date.getHours() < 10 ? '0' : '') + date.getHours());
+    format = format.replace("DD", (date.getDate() < 10 ? '0' : '') + date.getDate());
+    format = format.replace("MM", (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1));
     format = format.replace("YYYY", date.getFullYear());
     return format;
   }
@@ -144,14 +144,14 @@ module.exports = function(grunt) {
   };
 
   grunt
-    .loadTasks('./grunt-tasks'); 
+    .loadTasks('./grunt-tasks');
 
   grunt
     .initConfig(tasksConfig);
 
   grunt
     .registerTask('default', [''])
-    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts','encodeImages', 'uploads']) 
+    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts','encodeImages', 'uploads'])
     .registerTask('deploy', ['build', 'sshexec:make-release-dir', 'sshexec:update-symlinks', 'sftp:deploy'])
     .registerTask('server', ['connect:server', 'watch'])
     .registerTask('font', ['webfont'])
