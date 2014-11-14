@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+
   require('load-grunt-tasks')(grunt);
 
   var config = {
@@ -6,12 +7,12 @@ module.exports = function(grunt) {
     distDir: 'dist'
   };
 
-function dateFormat(date, format) {
-    format = format.replace("ss", (date.getSeconds() < 10 ? '0' : '') + date.getSeconds()); 
-    format = format.replace("mm", (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()); 
-    format = format.replace("hh", (date.getHours() < 10 ? '0' : '') + date.getHours());     
-    format = format.replace("DD", (date.getDate() < 10 ? '0' : '') + date.getDate()); 
-    format = format.replace("MM", (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1)); 
+  function dateFormat(date, format) {
+    format = format.replace("ss", (date.getSeconds() < 10 ? '0' : '') + date.getSeconds());
+    format = format.replace("mm", (date.getMinutes() < 10 ? '0' : '') + date.getMinutes());
+    format = format.replace("hh", (date.getHours() < 10 ? '0' : '') + date.getHours());
+    format = format.replace("DD", (date.getDate() < 10 ? '0' : '') + date.getDate());
+    format = format.replace("MM", (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1));
     format = format.replace("YYYY", date.getFullYear());
     return format;
   }
@@ -34,9 +35,20 @@ function dateFormat(date, format) {
           { dest: '<%= config.distDir %>/styles/', src: '**', expand: true, cwd: '<%= config.srcDir %>/styles/' },
         ]
       },
+      scripts: {
+        files: [
+          { dest: '<%= config.distDir %>/app/', src: '**', expand: true, cwd: '<%= config.srcDir %>/app/' },
+          { dest: '<%= config.distDir %>/vendor/', src: '**', expand: true, cwd: 'vendor/' },
+        ]
+      },
       assets: {
         files: [
           { dest: '<%= config.distDir %>/assets/', src: '**', expand: true, cwd: '<%= config.srcDir %>/assets/' },
+        ]
+      },
+      uploads: {
+        files: [
+          { dest: '<%= config.distDir %>/assets/', src: '**', expand: true, cwd: 'uploads/' },
         ]
       },
     },
@@ -86,8 +98,12 @@ function dateFormat(date, format) {
         files: '<%= config.srcDir %>/index.html',
         tasks: ['copy:index']
       },
+      js: {
+        files: '<%= config.srcDir %>/app/*.js',
+        tasks: ['copy:scripts']
+      },
       css: {
-        files: '**/*.css',
+        files: '<%= config.srcDir %>/styles/*.css',
         tasks: ['copy:styles']
       }
     },
@@ -98,15 +114,46 @@ function dateFormat(date, format) {
           base: '<%= config.distDir %>'
         }
       }
+    },
+    webfont: {
+      icons: {
+        src: 'icons/*.svg',
+        dest: 'src/styles/fonts',
+        options: {
+          font: 'skinnies',
+          types: 'eot,svg,ttf,woff',
+          embed: true
+        }
+      }
+    },
+    encodeImages: {
+      build: {
+        files: [{
+          expand: false,
+          src: '<%= config.distDir %>/styles/main.css',
+          dest: '<%= config.distDir %>/styles/main.css'
+        }]
+      }
+    },
+    processWorksDir: {
+      options: {
+        srcDir: 'uploads/works',
+        destFile: 'uploads/works/works.json'
+      }
     }
   };
+
+  grunt
+    .loadTasks('./grunt-tasks');
 
   grunt
     .initConfig(tasksConfig);
 
   grunt
     .registerTask('default', [''])
-    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets']) 
+    .registerTask('build', ['clean:dist', 'copy:index', 'copy:styles', 'copy:assets', 'copy:scripts','encodeImages', 'uploads'])
     .registerTask('deploy', ['build', 'sshexec:make-release-dir', 'sshexec:update-symlinks', 'sftp:deploy'])
     .registerTask('server', ['connect:server', 'watch'])
+    .registerTask('font', ['webfont'])
+    .registerTask('uploads', ['processWorksDir', 'copy:uploads'])
 };

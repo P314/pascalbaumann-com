@@ -1,31 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:ng="http://angularjs.org" ng-app="pascalbaumann-com">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
     <title>Pascal Baumann - Art Director</title>
     <meta name="description" content="Pascal Baumann is an Art Director based in Zürich, Switzerland.">
     <meta property="og:title" content="Pascal Baumann - Art Director"/>
     <meta property="og:description" content="Pascal Baumann is an Art Director based in Zürich, Switzerland." />
-    <meta property="og:url" content="http://www.pascalbaumann.com"/>  
+    <meta property="og:url" content="http://www.pascalbaumann.com"/>
+    <link rel='stylesheet' href='vendor/mapbox.js/mapbox.css' />
+    <link rel="stylesheet" href="vendor/object-fit/dist/polyfill.object-fit.css" />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
-  <body>
-    <div class="container">
-      <div class="icon-logo"></div>
-      <span class="title">Coming<br>March 2014</span>
-      <div class="linkedin">
-        <a href="http://www.linkedin.com/in/pbaumann" target="_blank" class="icon-linkedin"></a>
-        <a href="http://www.linkedin.com/in/pbaumann" target="_blank">Check LinkedIn for CV and work.</a>
-      </div>
-      <div class="address">
-          <span>Three One Four GmbH</span>
-          <br>
-          <span>Köchlistrasse 2, 8004 Zurich</span>
-      </div>
-      <div><script type="text/javascript">// <![CDATA[
-           user = "hello";site = "pascalbaumann.com";document.write('<a href=\"mai' + 'lto:' + user + '@' + site + '\">'+user+'@'+site+'</a>');// ]]&gt;</script>
-      </div>
+  <body scroll>
+  <div class="background-composition">
+    <div class="gradient"></div>
+    <div class="background"></div>
+  </div>
+  <div class="content" layout>
+    <div class="start-container">
+      <section id="start" class="start" class="drop-shadow-glow-layer round-bottom">
+          <div class="intro" >
+            <div>
+              <div class="icon-hello"></div>
+              <p class="drop-shadow">This is me, Pascal Baumann. Everyone just calls me Pi.<br>
+              Exactly: 3,14159. I am a freelance art director and designer<br>
+              working around the globe. I love it! I am quite easy, focussed,<br>
+              visionary, well connected and only a bit peacocky...<br><br>
+              Now, please, move your fingers!</p>
+            </div>
+            <div class="social-menu-top">
+              <div id="social-menu">
+                <div><script type="text/javascript" language="JavaScript">// <![CDATA[
+                 user = "hello";site = "pascalbaumann.com";document.write('<a href=\"mai' + 'lto:' + user + '@' + site + '\" class="social-icon icon_mail" title="email"></a>');// ]]&gt;</script></div>
+                <div><a href="skype:pascal.baumann" class="social-icon icon_skype" target="_blank" title="skype"></a></div>
+                <div><a href="http://www.linkedin.com/in/pbaumann" target="_blank" class="icon_linkedin" title="linkedin"></a></div>
+                <div><a href="https://twitter.com/P_314" target="_blank" class="social-icon icon_twitter" title="twitter"></a></div>
+                <div><a href="assets/where/Three One Four GmbH.vcf" target="_blank" class="icon_download drop-shadow" title="vcard"></a></div>
+              </div>
+            </div>
+            <div class="intro-continue">
+            <center>
+              <div class="intro-continue-nav">
+                <a href="#work" class="icon_arrow-down drop-shadow scroll"></a>
+              </div>
+            </center>
+            </div>
+          </div>
+      </section>
     </div>
-  </body>
+    <section id="work" data-width="full"  class="snap" ng-controller="WorksCtrl">
+      <div class="cover">
+        <div class="header">
+           <div id="logo-white" ng-hide="selectedWorkPos !== undefined" class="logo icon_logo-white"></div>
+           <span ng-show="selectedWork" class="title">{{selectedWork.title}}</span>
+         </div>
+        <div>
+          <span class="title" id="work-title">WORK</span>
+        </div>
+      </div>
+      <div class="work-container">
+        <work></work>
+        <div class="nav-container">
+           <nav ng-show="canShowNav()" class="media bullets">
+             <ul>
+               <li ng-repeat="media in selectedWork.media" ng-click="selectMedia($index)"></li>
+             </ul>
+           </nav>
+           <nav ng-show="canShowPageNav()" class="page bullets">
+             <ul>
+               <li ng-repeat="page in pages" ng-click="selectPage($index)"></li>
+             </ul>
+           </nav>
+           <nav ng-show="canShowNav()">
+             <a href="javascript:;" ng-click="toogleText(true)" ng-show="canShowTextButton()" class="icon_read"></a>
+             <a href="javascript:;" ng-click="toogleText(false)" ng-show="viewType == 'text'" class="icon_close"></a>
+           </nav>
+         </div>
+      </div>
+    </section>
+    <section id="clients" class="section-content-background drop-shadow-glow-layer round-top round-bottom snap">
+      <div class="section-content clients">
+      <article>
+        <span class="title">Some brands I worked for</span>
+        <div class="logos" ng-controller="ClientsCtrl">
+          <div class="client-logo" ng-repeat="client in clients">
+            <div class="front">
+              <img ng-src="assets/clients/{{client.imagepath}}" width="{{client.width}}" height="{{client.height}}" />
+            </div>
+            <div class="back">
+              <span>{{client.label}}</span>
+            </div>
+            <div class="back-anim">
+            </div>
+          </div>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section id="who" class="snap">
+      <div class="section-content who">
+        <article>
+          <div class="description">
+            <span class="title">It’s boredom or glory.</span>
+            <p>It’s a choice: Routine or the real creative work. Lala-land or commitment.<br>
+            And yes, although I freelance for Apple Inc. I will love your small business.<br>
+            My fee comes  second. It’s the project that counts.  Let’s go for it then.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section id="where" class="snap">
+      <div class="section-content where section-content-background drop-shadow-glow-layer round-top">
+        <div class="address">
+          <div class="icon_logo-black"></div>
+          <span class="logo-text">THREE ONE FOUR<br>GmbH</span>
+          <br>
+          <span class="title">Pascal Baumann</span><br />
+          <span>Design & Art Direction</span>
+          <br />
+          <p>Köchlistrasse 2<br />
+            8004 Zürich, Switzerland</p>
+          <div class="phone">
+            <span class="active">CH +41 78 604 60 62</span><br>
+            <span class="inactive">UK +44 (0)75 773 63951</span><br>
+            <span class="inactive">US +1 (310) 754 0482</span>
+          </div>
+        </div>
+        <div id="social-menu">
+            <div><script type="text/javascript" language="JavaScript">// <![CDATA[
+           user = "hello";site = "pascalbaumann.com";document.write('<a href=\"mai' + 'lto:' + user + '@' + site + '\" class="social-icon icon_mail"></a>');// ]]&gt;</script></div>
+          <div><a href="skype:pascal.baumann" class="social-icon icon_skype" target="_blank" ></a></div>
+          <div><a href="http://www.linkedin.com/in/pbaumann" target="_blank" class="icon_linkedin"></a></div>
+          <div><a href="https://twitter.com/P_314" target="_blank" class="social-icon icon_twitter"></a></div>
+          <div><a href="assets/where/Three One Four GmbH.vcf" target="_blank" class="icon_download drop-shadow"></a></div>
+        </div>
+      </div>
+     <div class="map round-bottom"><map></map></div>
+    </section>
+    <section id="dummy" class="section-content-background drop-shadow-glow-layer round-bottom">
+      <div class="section-content">
+      </div>
+    </section>
+    <section id="outro">
+      <div class="section-content outro">
+      <article>
+        <div class="outro-apple">
+          <div class="icon_apple"></div>
+          <br>
+          <span>Made on a Mac</span>
+        </div>
+        <div class="outro-continue-nav">
+          <a href="#start" class="icon_arrow-up scroll"></a>
+        </div>
+        <div class="icon_space-invaders"></div>
+        <p>THREE ONE FOUR is a member of the <a href="http://www.space-invaders.ch" target="blank">Space Invaders</a>, Zurich.
+        <br>&#169; 2014 Three One Four GmbH</p>
+      </article>
+      </div>
+    </section>
+  </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-47003723-1', 'pascalbaumann.com');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="vendor/jquery.transit/jquery.transit.js"></script>
+<script type="text/javascript" src="vendor/angular/angular.js"></script>
+<script type="text/javascript" src="vendor/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="vendor/angular-sanitize/angular-sanitize.js"></script>
+<script type="text/javascript" src="vendor/angular-touch/angular-touch.js"></script>
+<script type="text/javascript" src="vendor/ng-debounce/angular-debounce.js"></script>
+<script type="text/javascript" src="vendor/object-fit/dist/polyfill.object-fit.js"></script>
+<script type="text/JavaScript" src='vendor/mapbox.js/mapbox.js'></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/controllers/clients.js"></script>
+<script type="text/javascript" src="app/controllers/works.js"></script>
+<script type="text/javascript" src="app/directives/map.js"></script>
+<script type="text/javascript" src="app/directives/work.js"></script>
+<script type="text/javascript" src="app/directives/background-scroll.js"></script>
+<script type="text/javascript" src="app/directives/layout.js"></script>
+<script type="text/javascript" src="app/services/jsonloader.js"></script>
+</body>
 </html>
