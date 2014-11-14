@@ -31,7 +31,7 @@ angular.module('pascalbaumann-com')
         map.markerLayer.setGeoJSON(geoJson);
         map.touchZoom.disable();
         map.scrollWheelZoom.disable();
-        if (detectTouchSupport()) {
+        if (scope.UTIL.detectTouchSupport()) {
           map.dragging.disable();
         }
         if (map.tap) { map.tap.disable(); }

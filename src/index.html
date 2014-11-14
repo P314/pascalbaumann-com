@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="vendor/object-fit/dist/polyfill.object-fit.css" />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
-  <body>
+  <body scroll>
   <div class="background-composition">
     <div class="gradient"></div>
     <div class="background"></div>
   </div>
-  <div class="content">
+  <div class="content" layout>
     <div class="start-container">
       <section id="start" class="start" class="drop-shadow-glow-layer round-bottom">
           <div class="intro" >
@@ -173,14 +173,16 @@
 <script type="text/javascript" src="vendor/angular-resource/angular-resource.js"></script>
 <script type="text/javascript" src="vendor/angular-sanitize/angular-sanitize.js"></script>
 <script type="text/javascript" src="vendor/angular-touch/angular-touch.js"></script>
+<script type="text/javascript" src="vendor/ng-debounce/angular-debounce.js"></script>
 <script type="text/javascript" src="vendor/object-fit/dist/polyfill.object-fit.js"></script>
 <script type="text/JavaScript" src='vendor/mapbox.js/mapbox.js'></script>
-<script type="text/javascript" src="app/script.js"></script>
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/controllers/clients.js"></script>
 <script type="text/javascript" src="app/controllers/works.js"></script>
 <script type="text/javascript" src="app/directives/map.js"></script>
 <script type="text/javascript" src="app/directives/work.js"></script>
+<script type="text/javascript" src="app/directives/background-scroll.js"></script>
+<script type="text/javascript" src="app/directives/layout.js"></script>
 <script type="text/javascript" src="app/services/jsonloader.js"></script>
 </body>
 </html>
