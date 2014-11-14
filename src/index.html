@@ -7,9 +7,9 @@
     <meta property="og:title" content="Pascal Baumann - Art Director"/>
     <meta property="og:description" content="Pascal Baumann is an Art Director based in Zürich, Switzerland." />
     <meta property="og:url" content="http://www.pascalbaumann.com"/>
-    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel='stylesheet' href='vendor/mapbox.js/mapbox.css' />
     <link rel="stylesheet" href="vendor/object-fit/dist/polyfill.object-fit.css" />
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
   <div class="background-composition">
@@ -85,7 +85,7 @@
         <div class="logos" ng-controller="ClientsCtrl">
           <div class="client-logo" ng-repeat="client in clients">
             <div class="front">
-              <img src="assets/clients/{{client.imagepath}}" width="{{client.width}}" height="{{client.height}}" />
+              <img ng-src="assets/clients/{{client.imagepath}}" width="{{client.width}}" height="{{client.height}}" />
             </div>
             <div class="back">
               <span>{{client.label}}</span>
@@ -174,8 +174,13 @@
 <script type="text/javascript" src="vendor/angular-sanitize/angular-sanitize.js"></script>
 <script type="text/javascript" src="vendor/angular-touch/angular-touch.js"></script>
 <script type="text/javascript" src="vendor/object-fit/dist/polyfill.object-fit.js"></script>
-<script type="text/JavaScript" src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+<script type="text/JavaScript" src='vendor/mapbox.js/mapbox.js'></script>
 <script type="text/javascript" src="app/script.js"></script>
-<script type="text/javascript" src="app/application.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/controllers/clients.js"></script>
+<script type="text/javascript" src="app/controllers/works.js"></script>
+<script type="text/javascript" src="app/directives/map.js"></script>
+<script type="text/javascript" src="app/directives/work.js"></script>
+<script type="text/javascript" src="app/services/jsonloader.js"></script>
 </body>
 </html>
